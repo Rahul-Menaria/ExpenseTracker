@@ -19,15 +19,18 @@ function AddExpense(props) {
   }
 
   const submitClickHandler = (event) => {
+    event.preventDefault();
 
     const NewExpense = [{
         title:title,
         amount:amount,
-        date:date
+        date:new Date(date)
     }]
-
+    console.log(NewExpense)
     props.onAddExpense(NewExpense);
-    event.preventDefault();
+    setTitle('')
+    setDate('')
+    setAmount('')
 
   };
 
